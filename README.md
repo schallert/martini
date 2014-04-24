@@ -1,6 +1,8 @@
-# Martini  [![wercker status](https://app.wercker.com/status/9b7dbc6e2654b604cd694d191c3d5487/s/master "wercker status")](https://app.wercker.com/project/bykey/9b7dbc6e2654b604cd694d191c3d5487)[![GoDoc](https://godoc.org/github.com/go-martini/martini?status.png)](http://godoc.org/github.com/go-martini/martini)
+# Martini  [![wercker status](https://app.wercker.com/status/6b8247bcf4a5d3586007fa55638a8944/s/master "wercker status")](https://app.wercker.com/project/bykey/6b8247bcf4a5d3586007fa55638a8944)[![GoDoc](https://godoc.org/github.com/go-martini/martini?status.png)](http://godoc.org/github.com/go-martini/martini)
 
 Martini is a powerful package for quickly writing modular web applications/services in Golang.
+
+**This repo is a modified version of martini with a few tweaks for use in my final project for CMU's 15-440 Distributed Systems class.**
 
 Language Translations: [Simplified Chinese (zh_CN)](translations/README_zh_cn.md)
 
