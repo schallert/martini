@@ -19,6 +19,7 @@ package martini
 
 import (
 	"log"
+	"net"
 	"net/http"
 	"os"
 	"reflect"
@@ -32,6 +33,7 @@ type Martini struct {
 	handlers []Handler
 	action   Handler
 	logger   *log.Logger
+	listener net.Listener
 }
 
 // New creates a bare bones Martini instance. Use this method if you want to have full control over the middleware that is used.
@@ -80,8 +82,15 @@ func (m *Martini) Run() {
 
 	logger := m.Injector.Get(reflect.TypeOf(m.logger)).Interface().(*log.Logger)
 
+	l, _ := net.Listen("tcp", host+":"+port)
+	m.listener = l
+
 	logger.Println("listening on " + host + ":" + port)
-	logger.Fatalln(http.ListenAndServe(host+":"+port, m))
+	logger.Fatalln(http.Serve(l, m))
+}
+
+func (m *Martini) Close() {
+	m.listener.Close()
 }
 
 func (m *Martini) createContext(res http.ResponseWriter, req *http.Request) *context {
