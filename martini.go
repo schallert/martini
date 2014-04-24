@@ -89,8 +89,8 @@ func (m *Martini) Run() {
 	logger.Fatalln(http.Serve(l, m))
 }
 
-func (m *Martini) Close() {
-	m.listener.Close()
+func (m *Martini) Close() error {
+	return m.listener.Close()
 }
 
 func (m *Martini) createContext(res http.ResponseWriter, req *http.Request) *context {
